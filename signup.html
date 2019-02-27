@@ -4,36 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Decagon Chain</title>
-    <link
+    <title>Login | Decagon Chain</title>
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    /> -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="css/sandstone.bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="css/lux.bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="css/lumen.bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script
-      async
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script async src="js/bootstrap.bundle.min.js"></script>
-    <script defer src="js/main.js"></script>
   </head>
   <body>
     <div id="site-container">
-      <div id="site-content">
+      <div id="site-content" class="container">
         <header id="header">
           <h1>Decagon Chain</h1>
         </header>
         <main id="main">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores sapiente mollitia,
-            quisquam error velit porro ut laboriosam, esse qui nisi incidunt exercitationem magni
-            odio eum magnam consectetur fugiat quae. Ipsam.
-          </p>
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 king-grid-container">
+              <div class="spacer"></div>
+              <div id="signup-form-wrapper">
+                <form id="signup-form">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="fname">First Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="fname"
+                        placeholder="e.g. Kumbaya"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="lname">Last Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lname"
+                        placeholder="e.g. Ubuntu"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="e.g. ubuntu.kumbaya@decagon.institute"
+                      required
+                    />
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="uname">Username</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="uname"
+                        placeholder="e.g. kumbuntu172"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="phone">Phone Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phone"
+                        placeholder="+2348023456789"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="uname">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="pwd"
+                        placeholder="Password"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="repeatpwd">Confirm password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="re-pwd"
+                        placeholder="Password confirmation"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <br />
+                  <div class="col text-center">
+                    <button id="add" type="submit" class="btn btn-lg btn-primary">Sign in</button>
+                  </div>
+                </form>
+              </div>
+              <div class="spacer"></div>
+            </div>
+            <div class="col-md-2"></div>
+          </div>
         </main>
         <footer id="footer">
           <p id="footer-links"></p>
@@ -43,5 +128,15 @@
         </footer>
       </div>
     </div>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
