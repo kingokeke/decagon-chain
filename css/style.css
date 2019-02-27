@@ -1,0 +1,28 @@
+footer p {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+  background-color: #ccc;
+  width: 100%;
+  left: 0;
+  font-weight: bold;
+  padding: 3px;
+}
+
+footer p a {
+  text-decoration: none;
+}
+
+#login-form-wrapper {
+  box-shadow: 0px 0px 5px 0px #aaa;
+}
+#login-form {
+  padding: 30px;
+}
+.king-grid-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
