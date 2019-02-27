@@ -40,6 +40,33 @@
       "email": "treasure@yahoo.com",
       "password": "t",
       "id": 5
+    },
+    {
+      "firstname": "Hal",
+      "lastname": "Hal",
+      "Phone": "+2348023456789",
+      "username": "hal",
+      "email": "hal@nmd.com",
+      "password": "1123",
+      "id": 6
+    },
+    {
+      "firstname": "King",
+      "lastname": "Sley",
+      "Phone": "08023456782",
+      "username": "kingsleyyooo",
+      "email": "kingsley@mail.com",
+      "password": "111111",
+      "id": 7
+    },
+    {
+      "firstname": "Kunta",
+      "lastname": "Kinte",
+      "Phone": "+2340029836792",
+      "username": "kuntakinte",
+      "email": "kintakinte@gmail.com",
+      "password": "1111",
+      "id": 8
     }
   ]
 }
