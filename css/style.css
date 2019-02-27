@@ -16,13 +16,25 @@ footer p a {
   text-decoration: none;
 }
 
-#login-form-wrapper {
-  box-shadow: 0px 0px 5px 0px #aaa;
+#login-form-wrapper,
+#signup-form-wrapper {
+  margin-top: 200px;
 }
-#login-form {
+#login-form,
+#signup-form {
   padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px;
 }
-.king-grid-container {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+
+body {
+  background-image: url(../img/bg1.jpg);
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+.swal-button {
+  background-color: #0062cc;
 }
