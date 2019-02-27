@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login | Decagon Chain</title>
+    <link rel="stylesheet" href="css/lumen.bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="site-container">
+      <div id="site-content">
+        <header id="header">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Decagon Chain</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Wallets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Transactions</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+              </ul>
+              <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> -->
+            </div>
+          </nav>
+          <h1>Decagon Chain</h1>
+        </header>
+        <main id="main" class="container">
+          <div class="row">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-sm chart-container">
+              <!-- TradingView Widget BEGIN -->
+              <div class="tradingview-widget-container">
+                <div id="tradingview_1716a"></div>
+                <div class="tradingview-widget-copyright">
+                  <a
+                    href="https://www.tradingview.com/symbols/BINANCE-BTCUSDT/"
+                    rel="noopener"
+                    target="_blank"
+                    ><span class="blue-text">BTCUSDT chart</span></a
+                  >
+                  by TradingView
+                </div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                  new TradingView.widget({
+                    width: 960,
+                    height: 610,
+                    symbol: 'BINANCE:BTCUSDT',
+                    interval: 'D',
+                    timezone: 'Africa/Lagos',
+                    theme: 'Light',
+                    style: '1',
+                    locale: 'en',
+                    toolbar_bg: '#f1f3f6',
+                    enable_publishing: false,
+                    withdateranges: true,
+                    allow_symbol_change: true,
+                    container_id: 'tradingview_1716a',
+                  });
+                </script>
+              </div>
+              <!-- TradingView Widget END -->
+            </div>
+            <!-- <div class="col-md-2"></div> -->
+          </div>
+        </main>
+        <footer id="footer">
+          <p id="footer-links"></p>
+          <p id="copyright">
+            &copy; 2019 Decagon Chain Ltd. All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </div>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

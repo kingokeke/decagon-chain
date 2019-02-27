@@ -72,6 +72,48 @@ $(document).ready(() => {
           });
         } else {
           swal("ooops!", "Password do not match!", "warning");
+
+  $('#add').on('click', e => {
+    e.preventDefault();
+
+    var fname = $('#fname').val();
+    var lname = $('#lname').val();
+    var uname = $('#uname').val();
+    var phone = $('#phone').val();
+    var email = $('#email').val();
+    var pwd = $('#pwd').val();
+    var repeatpwd = $('#re-pwd').val();
+    var data = {};
+
+    if (fname && lname && uname && pwd && repeatpwd && email && phone) {
+      if (validateEmail(email)) {
+        if (pwd === repeatpwd) {
+          data = {
+            firstname: fname,
+            lastname: lname,
+            Phone: phone,
+            username: uname,
+            email: email,
+            password: pwd,
+          };
+
+          $.ajax({
+            url: 'http://localhost:3000/users',
+            type: 'POST',
+            data: data,
+            beforeSend: function(e) {
+              if (!validateEmail(email)) {
+                swal('Invalid', 'The email you entered is invalid!', 'warning');
+                return;
+              }
+            },
+            success: function(e) {
+              //TODO make a link to the login page for successful signup
+              swal('Successful!', 'Your account was created, Please login!', 'success');
+            },
+          });
+        } else {
+          swal('ooops!', 'Password do not match!', 'warning');
         }
 
       } else {
