@@ -1,38 +1,16 @@
 {
   "users": [
     {
-      "firstname": "Izuhukwu",
-      "lastname": "Ogbodo",
-      "gender": "M",
-      "username": "solomon",
-      "password": "softpro",
+      "firstname": "king",
+      "lastname": "king",
+      "Phone": "+2347032150416",
+      "username": "king",
+      "email": "matthiasogbodo@gmail.com",
+      "password": "king",
       "id": 1
     },
     {
-      "firstname": "Kingsley",
-      "lastname": "Okeke",
-      "gender": "F",
-      "username": "king",
-      "password": "king",
-      "id": 2
-    },
-    {
-      "firstname": "tolu",
-      "lastname": "okeke",
-      "gender": "F",
-      "username": "tolu",
-      "password": "tolu",
-      "id": 3
-    },
-    {
-      "firstname": "gggg",
-      "lastname": "uuiui",
-      "gender": "F",
-      "username": "i",
-      "password": "rom",
-      "id": 4
-    },
-    {
+
       "firstname": "treasure",
       "lastname": "ogbonna",
       "gender": "F",
@@ -58,15 +36,6 @@
       "email": "kingsley@mail.com",
       "password": "111111",
       "id": 7
-    },
-    {
-      "firstname": "Kunta",
-      "lastname": "Kinte",
-      "Phone": "+2340029836792",
-      "username": "kuntakinte",
-      "email": "kintakinte@gmail.com",
-      "password": "1111",
-      "id": 8
     }
   ]
 }
