@@ -28,13 +28,48 @@ footer p a {
   box-shadow: 0px 0px 5px 0px;
 }
 
-body {
-  background-image: url(../img/bg1.jpg);
-}
+/* body {
+  /* background-image: url(../img/bg1.jpg); 
+} */
 h1 {
   text-align: center;
   color: white;
 }
 .swal-button {
   background-color: #0062cc;
+}
+
+.chart-container {
+  height: 600px;
+}
+
+/* .tradingview-widget-copyright {
+  visibility: hidden;
+} */
+
+.navbar-brand {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  padding-left: 30px;
+}
+
+.page-wrapper > .container-fluid {
+  padding: 20px;
+  min-height: calc(100vh);
+}
+div#tradingview_deb17 {
+  height: 600px;
+}
+
+.bitcoin-news-body {
+  margin-bottom: -7px;
+}
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important;
+  padding-left: 40px;
+}
+.mobile-menu-button {
+  display: none !important;
 }
