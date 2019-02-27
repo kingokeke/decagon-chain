@@ -10,13 +10,32 @@
       "id": 1
     },
     {
-      "firstname": "solomon",
-      "lastname": "ogbodo",
-      "Phone": "+2347032150416",
-      "username": "solomon",
-      "email": "matthiasogbodo1@gmail.com",
-      "password": "solomon",
-      "id": 2
+
+      "firstname": "treasure",
+      "lastname": "ogbonna",
+      "gender": "F",
+      "username": "treasure",
+      "email": "treasure@yahoo.com",
+      "password": "t",
+      "id": 5
+    },
+    {
+      "firstname": "Hal",
+      "lastname": "Hal",
+      "Phone": "+2348023456789",
+      "username": "hal",
+      "email": "hal@nmd.com",
+      "password": "1123",
+      "id": 6
+    },
+    {
+      "firstname": "King",
+      "lastname": "Sley",
+      "Phone": "08023456782",
+      "username": "kingsleyyooo",
+      "email": "kingsley@mail.com",
+      "password": "111111",
+      "id": 7
     }
   ]
 }
