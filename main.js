@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 $(document).ready(() => {
   /**SIGN UP BUTTON ACTION */
   $('#add').on({
