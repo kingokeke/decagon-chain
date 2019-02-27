@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "firstname": "Izuhukwu",
+      "lastname": "Ogbodo",
+      "gender": "M",
+      "username": "solomon",
+      "password": "softpro",
+      "id": 1
+    },
+    {
+      "firstname": "Kingsley",
+      "lastname": "Okeke",
+      "gender": "F",
+      "username": "king",
+      "password": "king",
+      "id": 2
+    },
+    {
+      "firstname": "tolu",
+      "lastname": "okeke",
+      "gender": "F",
+      "username": "tolu",
+      "password": "tolu",
+      "id": 3
+    },
+    {
+      "firstname": "gggg",
+      "lastname": "uuiui",
+      "gender": "F",
+      "username": "i",
+      "password": "rom",
+      "id": 4
+    },
+    {
+      "firstname": "treasure",
+      "lastname": "ogbonna",
+      "gender": "F",
+      "username": "treasure",
+      "email": "treasure@yahoo.com",
+      "password": "t",
+      "id": 5
+    }
+  ]
+}
