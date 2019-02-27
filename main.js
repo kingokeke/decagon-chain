@@ -21,7 +21,6 @@ $(document).ready(() => {
             firstname: fname,
             lastname: lname,
             Phone: phone,
-            // gender: gender,
             username: uname,
             email: email,
             password: pwd,
