@@ -75,3 +75,38 @@ div#tradingview_deb17 {
 .d-flex.flex-row.comment-row.m-t-0:hover {
   background-color: white;
 }
+#site-container {
+  background-image: url(../img/bg2.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
+#bitcoin-usd-price,
+#bitcoin-ngn-price {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.btc-price-dashboard {
+  text-align: center;
+}
+
+.btc-price-dashboard h4 {
+  font-weight: 900 !important;
+}
+
+.bitcoin-news-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+#user-profile-image {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  margin: 150px auto 50px;
+}
+#user-profile-image img {
+  display: block;
+  width: 100%;
+  border-radius: 100px;
+}

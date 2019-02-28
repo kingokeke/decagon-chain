@@ -10,7 +10,6 @@
       "id": 1
     },
     {
-
       "firstname": "treasure",
       "lastname": "ogbonna",
       "gender": "F",
@@ -36,6 +35,15 @@
       "email": "kingsley@mail.com",
       "password": "111111",
       "id": 7
+    },
+    {
+      "firstname": "King",
+      "lastname": "Sley",
+      "Phone": "0983730038910",
+      "username": "kingsley",
+      "email": "kingsley@mail.com",
+      "password": "1111",
+      "id": 8
     }
   ]
 }
