@@ -1,16 +1,8 @@
+/* eslint-disable no-undef, no-unused-vars */
 $(document).ready(function() {
   const $emailLogin = document.querySelector('#input');
   const $passwordLogin = document.querySelector('#password-login');
   const $submitLogin = document.querySelector('#submit-login');
-  const charList = generateCharacterList();
-
-  //
-
-  //
-
-  //
-
-  // Function Declarations
 
   function generateCharacterList() {
     const array = [];
@@ -32,6 +24,7 @@ $(document).ready(function() {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  const charList = generateCharacterList();
   function btcAddress(characterArray) {
     let address = '1';
     for (let i = 30; i--; ) {
@@ -39,6 +32,7 @@ $(document).ready(function() {
     }
     return address;
   }
+  const btcAdd = btcAddress();
 });
 
 // // const btcAdd = btcAddress();
