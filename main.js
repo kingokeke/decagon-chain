@@ -237,7 +237,7 @@ function makeSignup() {
           },
         });
       } else {
-        swal('oops!', 'Please all felds are requird!', 'warning');
+        swal('oops!', 'Please all fields are required!', 'warning');
       }
     }
   } else {
@@ -248,7 +248,7 @@ function makeSignup() {
 /**LOGIN BUTTON ACTION */
 $('#login').on('click', e => {
   e.preventDefault();
-  var uname = $('#uname').val();
+  var uname = $('#uname-login').val();
   var pwd = $('#pwd').val();
   if (uname && pwd) {
     $.ajax({
@@ -267,7 +267,7 @@ $('#login').on('click', e => {
       }
     });
   } else {
-    swal('oops!', 'Please all felds are requird!', 'warning');
+    swal('oops!', 'Please all fields are required!', 'warning');
   }
 });
 
