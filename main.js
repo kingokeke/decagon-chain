@@ -1,5 +1,7 @@
 $(document).ready(() => {
   /**SIGN UP BUTTON ACTION */
+
+
   $('#email').on('focusout', () => {
     if (email) {
       $.ajax({
@@ -9,7 +11,7 @@ $(document).ready(() => {
         if (email_res.length > 0) {
           swal("Email conflict", "This email address has been taken. Please use a different one!", "warning");
           $("#email").val('');
-         
+
         }
 
       });
@@ -24,7 +26,7 @@ $(document).ready(() => {
         if (uname_res.length > 0) {
           swal("Username conflict", "This username has been taken. Please use a different one!", "warning");
           $("#uname").val('');
-          
+
         }
 
       });
@@ -32,12 +34,6 @@ $(document).ready(() => {
   });
 
   $('#add').on({
-    mouseenter: function () {
-      $(this).css("background-color", "yellow");
-    }
-    , mouseleave: function () {
-      $(this).css("background-color", "lightgrey");
-    },
     click: function (e) {
       e.preventDefault();
 
@@ -48,7 +44,6 @@ $(document).ready(() => {
       var email = $('#email').val();
       var pwd = $('#pwd').val();
       var repeatpwd = $('#re-pwd').val();
-
       var data = {};
 
       if (fname && lname && uname && pwd && repeatpwd && email && phone) {
@@ -119,18 +114,18 @@ function validatePhone(phone) {
   var re = /\+234[789][01]\d\d\d\d\d\d\d\d/;
   return re.test(String(phone));
 }
-function payWithPaystack() {
+function payWithPaystack(phone, email, amount, name) {
   console.log("yeah");
   var handler = PaystackPop.setup({
     key: 'pk_test_b6ff1e69b9f6983bfa479e67bff6f3f7cad03c94', //put your public key here
-    email: 'matthiasogbodo@email.com', //put your customer's email here
-    amount: 100000, //amount the customer is supposed to pay
+    email: email, //put your customer's email here
+    amount: amount, //amount the customer is supposed to pay
     metadata: {
       custom_fields: [
         {
-          display_name: "Mobile Number",
-          variable_name: "mobile_number",
-          value: "+2347032150416" //customer's mobile number
+          display_name: name,
+          variable_name: name,
+          value: phone //customer's mobile number
         }
       ]
     },
