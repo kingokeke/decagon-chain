@@ -1,4 +1,7 @@
 /* eslint-disable no-undef, no-unused-vars */
+//if (isUserLogedIn()) {
+// window.location.replace('user-admin.html');
+//}
 $(document).ready(() => {
   /**SIGN UP BUTTON ACTION */
 
@@ -53,9 +56,6 @@ $(document).ready(() => {
     const user = getLocalStorageValue('user');
     payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
   });
-  if (isUserLogedIn()) {
-    window.location.replace('user-admin.html');
-  }
 });
 
 /**pastack sanbox Payment processor gateway*/
@@ -245,9 +245,8 @@ function makeSignup() {
   }
 }
 
-/**LOGIN BUTTON ACTION */
-$('#login').on('click', e => {
-  e.preventDefault();
+/**login button function */
+function makeLogin() {
   var uname = $('#uname-login').val();
   var pwd = $('#pwd').val();
   if (uname && pwd) {
@@ -269,7 +268,7 @@ $('#login').on('click', e => {
   } else {
     swal('oops!', 'Please all fields are required!', 'warning');
   }
-});
+}
 
 /**forgot password */
 $('#uname').on('focusout', () => {
@@ -300,50 +299,13 @@ $('#chanFgePwd').on('click', () => {
   }
 });
 
-// function payWithPaystack(phone, email, amount, name) {
-//   console.log("yeah");
-//   var handler = PaystackPop.setup({
-//     key: 'pk_test_b6ff1e69b9f6983bfa479e67bff6f3f7cad03c94', //put your public key here
-//     email: email, //put your customer's email here
-//     amount: amount, //amount the customer is supposed to pay
-//     metadata: {
-//       custom_fields: [
-//         {
-//           display_name: name,
-//           variable_name: name,
-//           value: phone //customer's mobile number
-//         }
-//       ]
-//     },
-//     callback: function (response) {
-//       //after the transaction have been completed
-//       //make post call  to the server with to verify payment
-//       //using transaction reference as post data
-//       $.post("verify.php", { reference: response.reference }, function (status) {
-//         if (status == "success")
-//           swal("Successful!", "Transaction was Sucessful!", "success");
-//         else
-//           //transaction failed
-//           alert(response);
-//       });
-//     },
-//     onClose: function () {
-//       //when the user close the payment modal
-//       swal("Cancelled", "Transaction cancelled!", "warning");
-//     }
-//   });
-//   handler.openIframe(); //open the paystack's payment modal
-// }
-
 function chagePassword(userId, pwd) {
   $.ajax({
     url: 'http://localhost:3000/users/' + userId,
     type: 'PUT',
     data: { password: pwd },
   }).done(res => {
-    //if (res.length !== 0) {
     swal('Successful!', 'password changed Sucessful!', 'success');
-    //}
   });
 }
 
