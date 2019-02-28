@@ -72,3 +72,6 @@ div#tradingview_deb17 {
 .currency-amount {
   font-size: 1.5em;
 }
+.d-flex.flex-row.comment-row.m-t-0:hover {
+  background-color: white;
+}
