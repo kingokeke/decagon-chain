@@ -66,6 +66,9 @@ $(document).ready(() => {
               }
             },
             success: function (e) {
+              /**cached this user profile */
+              user = e;
+
               window.location.href = "user-admin.html";
               swal('Successful!', 'Your account was created, Please login!', 'success');
             },
@@ -93,6 +96,8 @@ $(document).ready(() => {
       })
         .done((res) => {
           if (res.length !== 0) {
+            /**cached this user profile */
+            user = res;
             window.location.href = "user-admin.html";
             swal("Successful!", "Login Sucessful!", "success");
 
@@ -110,7 +115,19 @@ $(document).ready(() => {
 
 
 
+function getNairaPrize() {
+  const Http = new XMLHttpRequest();
+  // const proxyurl = 'https://cors-anywhere.herokuapp.com/'
+  const url = 'http://apilayer.net/api/live?access_key=1ff6fa7cf24a020bcfc7de477de91c91&source=NGN';
+  var jsonCurrencyPrices = [];
+  $.getJSON(url, function (data) {
+    $.each(data, function (i, field) {
+      jsonCurrencyPrices.push(JSON.stringify(field));
+    });
+  });
 
+  return jsonCurrencyPrices;
+}
 
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
