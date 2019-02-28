@@ -1,5 +1,9 @@
 $(document).ready(() => {
+<<<<<<< HEAD
 
+=======
+  /**SIGN UP BUTTON ACTION */
+>>>>>>> 85de1765aedd9dcf6526c674bc451321a95e1767
 
 
   $('#email').on('focusout', () => {
@@ -241,21 +245,34 @@ function makeSignup() {
           },
         });
       } else {
+<<<<<<< HEAD
         swal('ooops!', 'Password do not match!', 'warning');
       }
 
     } else {
       swal('Invalid', 'The email you entered is invalid!', 'warning');
+=======
+        swal("oops!", "Please all felds are requird!", "warning");
+      }
+>>>>>>> 85de1765aedd9dcf6526c674bc451321a95e1767
     }
   } else {
     swal('Error!', 'Please all fields are required!', 'warning');
   }
 }
 
+<<<<<<< HEAD
 
 /**sigin button function */
 function makeLogin() {
   var uname = $('#uname-login').val();
+=======
+});
+/**LOGIN BUTTON ACTION */
+$('#login').on('click', (e) => {
+  e.preventDefault();
+  var uname = $('#uname').val();
+>>>>>>> 85de1765aedd9dcf6526c674bc451321a95e1767
   var pwd = $('#pwd').val();
   if (uname && pwd) {
     $.ajax({
@@ -279,9 +296,110 @@ function makeLogin() {
 
     swal("oops!", "Please all felds are requird!", "warning");
   }
+<<<<<<< HEAD
 
 }
 
 function registerListeners() {
 
 }
+=======
+});
+$('#deposit').on('click', () => { payWithPaystack() });
+
+/**forgot password */
+$('#uname').on('focusout', () => {
+  if ($("#uname").val()) {
+    $.ajax({
+      url: "http://localhost:3000/users?username=" + $("#uname").val(),
+      type: "GET"
+    }).done((uname_res) => {
+      if (uname_res.length > 0) {
+        swal("Username conflict", "This username has been taken. Please use a different one!", "warning");
+        $("#uname").val('');
+
+      }
+
+    });
+  }
+});
+/**change password */
+$('#chanFgePwd').on('click', () => {
+  var pwd = $('#pwd').val();
+  var repeatPwd = $('#re-pwd').val();
+
+  if (pwd && repeatPwd) {
+    chagePassword(pwd);
+  }
+});
+
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+function validatePhone(phone) {
+  var re = /\+234[789][01]\d\d\d\d\d\d\d\d/;
+  return re.test(String(phone));
+}
+function payWithPaystack(phone, email, amount, name) {
+  console.log("yeah");
+  var handler = PaystackPop.setup({
+    key: 'pk_test_b6ff1e69b9f6983bfa479e67bff6f3f7cad03c94', //put your public key here
+    email: email, //put your customer's email here
+    amount: amount, //amount the customer is supposed to pay
+    metadata: {
+      custom_fields: [
+        {
+          display_name: name,
+          variable_name: name,
+          value: phone //customer's mobile number
+        }
+      ]
+    },
+    callback: function (response) {
+      //after the transaction have been completed
+      //make post call  to the server with to verify payment 
+      //using transaction reference as post data
+      $.post("verify.php", { reference: response.reference }, function (status) {
+        if (status == "success")
+          swal("Successful!", "Transaction was Sucessful!", "success");
+
+        else
+          //transaction failed
+          alert(response);
+      });
+    },
+    onClose: function () {
+      //when the user close the payment modal
+      swal("Cancelled", "Transaction cancelled!", "warning");
+    }
+  });
+  handler.openIframe(); //open the paystack's payment modal
+}
+function getNairaPrize() {
+  const Http = new XMLHttpRequest();
+  // const proxyurl = 'https://cors-anywhere.herokuapp.com/'
+  const url = 'http://apilayer.net/api/live?access_key=1ff6fa7cf24a020bcfc7de477de91c91&source=NGN';
+  var jsonCurrencyPrices = [];
+  $.getJSON(url, function (data) {
+    $.each(data, function (i, field) {
+      jsonCurrencyPrices.push(JSON.stringify(field));
+    });
+  });
+
+  return jsonCurrencyPrices;
+}
+
+function chagePassword(userId, pwd) {
+  $.ajax({
+    url: "http://localhost:3000/users/" + userId,
+    type: "PUT",
+    data: { "password": pwd }
+  })
+    .done((res) => {
+      //if (res.length !== 0) {
+      swal("Successful!", "password changed Sucessful!", "success");
+      //}
+    });
+} 
+>>>>>>> 85de1765aedd9dcf6526c674bc451321a95e1767
