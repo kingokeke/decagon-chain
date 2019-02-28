@@ -1,7 +1,8 @@
 $(document).ready(() => {
+  let user = {};
   /**SIGN UP BUTTON ACTION */
   $('#email').on('focusout', () => {
-    if (email) {
+    if ($('#email').val()) {
       $.ajax({
         url: "http://localhost:3000/users?email=" + $("#email").val(),
         type: "GET"
@@ -16,7 +17,7 @@ $(document).ready(() => {
     }
   });
   $('#uname').on('focusout', () => {
-    if (uname) {
+    if ($('#uname').val()) {
       $.ajax({
         url: "http://localhost:3000/users?username=" + $("#uname").val(),
         type: "GET"
@@ -80,54 +81,35 @@ $(document).ready(() => {
       swal('Error!', 'Please all fields are required!', 'warning');
     }
   });
-
-
-});
-/**LOGIN BUTTON ACTION */
-$('#login').on('click', (e) => {
-  e.preventDefault();
-  var uname = $('#uname-login').val();
-  var pwd = $('#pwd').val();
-  if (uname && pwd) {
-    $.ajax({
-      url: "http://localhost:5000/users?username=" + uname + "&password=" + pwd,
-      type: "GET"
-    })
-      .done((res) => {
-        if (res.length !== 0) {
-          window.location.href = "user-admin.html";
-          swal("Successful!", "Login Sucessful!", "success");
-
-        } else {
-          swal("Authentication Error", "Username or Password not Correct!", "warning");
-        }
-      });
-  } else {
-
-    swal("oops!", "Please all felds are requird!", "warning");
-  }
   /**LOGIN BUTTON ACTION */
-  $('#login').on('click', e => {
+  $('#login').on('click', (e) => {
     e.preventDefault();
-    var uname = $('#uname').val();
+    var uname = $('#uname-login').val();
     var pwd = $('#pwd').val();
     if (uname && pwd) {
       $.ajax({
-        url: 'http://localhost:3000/users?username=' + uname + '&password=' + pwd,
-        type: 'GET',
-      }).done(res => {
-        if (res.length !== 0) {
-          swal('Successful!', 'Login Sucessful!', 'success');
-        } else {
-          swal('Authentication Error', 'Username or Password not Correct!', 'warning');
-        }
-      });
+        url: "http://localhost:5000/users?username=" + uname + "&password=" + pwd,
+        type: "GET"
+      })
+        .done((res) => {
+          if (res.length !== 0) {
+            window.location.href = "user-admin.html";
+            swal("Successful!", "Login Sucessful!", "success");
+
+          } else {
+            swal("Authentication Error", "Username or Password not Correct!", "warning");
+          }
+        });
     } else {
-      swal('Error!', 'Please all fields are required!', 'warning');
+
+      swal("oops!", "Please all felds are requird!", "warning");
     }
+    $('#deposit').on('click', () => { payWithPaystack() });
   });
 });
-$('#deposit').on('click', () => { payWithPaystack() });
+
+
+
 
 
 function validateEmail(email) {
@@ -137,4 +119,8 @@ function validateEmail(email) {
 function validatePhone(phone) {
   var re = /\+234[789][01]\d\d\d\d\d\d\d\d/;
   return re.test(String(phone));
+}
+
+function pullWalletBalance() {
+
 }
