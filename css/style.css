@@ -43,10 +43,6 @@ h1 {
   height: 600px;
 }
 
-/* .tradingview-widget-copyright {
-  visibility: hidden;
-} */
-
 .navbar-brand {
   font-weight: bold;
   text-transform: uppercase;
@@ -54,10 +50,6 @@ h1 {
   padding-left: 30px;
 }
 
-.page-wrapper > .container-fluid {
-  padding: 20px;
-  min-height: calc(100vh);
-}
 div#tradingview_deb17 {
   height: 600px;
 }
@@ -72,4 +64,11 @@ div#tradingview_deb17 {
 }
 .mobile-menu-button {
   display: none !important;
+}
+.page-wrapper > .container-fluid {
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+.currency-amount {
+  font-size: 1.5em;
 }
