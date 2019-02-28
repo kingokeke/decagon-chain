@@ -1,85 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Login | Decagon Chain</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div id="site-container">
-      <div id="site-content" class="container">
-        <header id="header">
-          <h1>Decagon Chain</h1>
-        </header>
-        <main id="main">
-          <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm col-md-6">
-              <div class="spacer"></div>
-              <div id="login-form-wrapper">
-                <form id="login-form">
-                  <div class="form-group">
-                    <label for="uname">Email address</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="uname"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email"
-                      required
-                    />
-                  </div>
-                  <br />
-                  <div class="form-group">
-                    <label for="pwd">Password</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="pwd"
-                      placeholder="Password"
-                      required
-                    />
-                  </div>
-                  <br />
-                  <!-- <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div> -->
-                  <div class="text-center col">
-                    <button id="login" type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-              </div>
-              <div class="spacer"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Login | Decagon Chain</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div id="site-container">
+    <div id="site-content" class="container">
+      <header id="header">
+        <h1>Decagon Chain</h1>
+      </header>
+      <main id="main">
+        <div class="row">
+          <div class="col-sm"></div>
+          <div class="col-sm col-md-6">
+            <div class="spacer"></div>
+            <div id="login-form-wrapper">
+              <form id="login-form">
+                <div class="form-group">
+                  <label for="uname">Username</label>
+                  <input type="uname-login" class="form-control" id="uname-login" aria-describedby="unameHelp"
+                    placeholder="Enter Username" required />
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="pwd">Password</label>
+                  <input type="password" class="form-control" id="pwd" placeholder="Password" required />
+                </div>
+                <br />
+
+                <div class="text-center col">
+                  <button id="login" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
-            <div class="col-sm"></div>
+            <div class="spacer"></div>
           </div>
-        </main>
-        <footer id="footer">
-          <p id="footer-links"></p>
-          <p id="copyright">
-            &copy; 2019 Decagon Chain Ltd. All rights reserved.
-          </p>
-        </footer>
-      </div>
+          <div class="col-sm"></div>
+        </div>
+      </main>
+      <footer id="footer">
+        <p id="footer-links"></p>
+        <p id="copyright">
+          &copy; 2019 Decagon Chain Ltd. All rights reserved.
+        </p>
+      </footer>
     </div>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="main.js"></script>
-  </body>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script async src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>
