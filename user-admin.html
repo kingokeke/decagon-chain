@@ -272,7 +272,7 @@
                     ><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a
                   >
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="javascript:void(0)"
+                  <a class="dropdown-item" href="login.html"
                     ><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a
                   >
                   <div class="dropdown-divider"></div>
@@ -315,7 +315,7 @@
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="wallets.html"
                   aria-expanded="false"
-                  ><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Wallets</span></a
+                  ><i class="mdi mdi-wallet"></i><span class="hide-menu">Wallets</span></a
                 >
               </li>
               <li class="sidebar-item">
@@ -323,8 +323,7 @@
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="transactions.html"
                   aria-expanded="false"
-                  ><i class="mdi mdi-chart-bubble"></i
-                  ><span class="hide-menu">Transactions</span></a
+                  ><i class="fas fa-dollar-sign"></i><span class="hide-menu">Transactions</span></a
                 >
               </li>
               <li class="sidebar-item">
@@ -332,7 +331,7 @@
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="profile.html"
                   aria-expanded="false"
-                  ><i class="mdi mdi-border-inside"></i><span class="hide-menu">Profile</span></a
+                  ><i class="mdi mdi-account"></i><span class="hide-menu">Profile</span></a
                 >
               </li>
               <li class="sidebar-item">
@@ -340,7 +339,7 @@
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="settings.html"
                   aria-expanded="false"
-                  ><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Settings</span></a
+                  ><i class="fas fa-cog"></i><span class="hide-menu">Settings</span></a
                 >
               </li>
               <!-- <li class="sidebar-item">
@@ -588,9 +587,9 @@
                   <div class="card card-hover">
                     <div class="box bg-primary text-center">
                       <h1 class="font-light text-white">
-                        <i class="mdi mdi-chart-areaspline"></i>
+                        <i class="far fa-money-bill-alt"></i>
                       </h1>
-                      <h6 class="text-white">Charts</h6>
+                      <h6 class="text-white">Deposit Naira</h6>
                     </div>
                   </div>
                 </div>
@@ -598,9 +597,9 @@
                   <div class="card card-hover">
                     <div class="box bg-success text-center">
                       <h1 class="font-light text-white">
-                        <i class="mdi mdi-chart-areaspline"></i>
+                        <i class="far fa-money-bill-alt"></i>
                       </h1>
-                      <h6 class="text-white">Charts</h6>
+                      <h6 class="text-white">Withdraw Naira</h6>
                     </div>
                   </div>
                 </div>
@@ -608,9 +607,9 @@
                   <div class="card card-hover">
                     <div class="box bg-info text-center">
                       <h1 class="font-light text-white">
-                        <i class="mdi mdi-chart-areaspline"></i>
+                        <i class="fab fa-bitcoin"></i>
                       </h1>
-                      <h6 class="text-white">Charts</h6>
+                      <h6 class="text-white">Buy Bitcoin</h6>
                     </div>
                   </div>
                 </div>
@@ -618,9 +617,9 @@
                   <div class="card card-hover">
                     <div class="box bg-danger text-center">
                       <h1 class="font-light text-white">
-                        <i class="mdi mdi-chart-areaspline"></i>
+                        <i class="fab fa-bitcoin"></i>
                       </h1>
-                      <h6 class="text-white">Charts</h6>
+                      <h6 class="text-white">Sell Bitcoin</h6>
                     </div>
                   </div>
                 </div>
@@ -629,14 +628,23 @@
             <div class="col-sm-12 col-lg-4">
               <div class="card">
                 <div class="card-body">
-                  <h3 class="card-title">Crypto News</h3>
+                  <div class="row">
+                    <div class="col-sm-12 col-lg-6 btc-price-dashboard border-right">
+                      <h4 class="card-title">BTC/USD</h4>
+                      <div id="bitcoin-usd-price"></div>
+                    </div>
+                    <div class="col-sm-12 col-lg-6 btc-price-dashboard">
+                      <h4 class="card-title">BTC/NGN</h4>
+                      <div id="bitcoin-ngn-price"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title bitcoin-news-title">Cryptocurrency News</h3>
 
                   <div class="card bitcoin-news-body">
-                    <div class="card-body">
-                      <p class="card-title m-b-0">
-                        The latest news from the world of bitcoin, blockchain and cryptocurrency
-                      </p>
-                    </div>
                     <ul class="list-style-none">
                       <li class="d-flex no-block card-body border-top">
                         <!-- <i class="fa fa-check-circle w-30px m-t-5"></i> -->
