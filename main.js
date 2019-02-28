@@ -1,4 +1,7 @@
 /* eslint-disable no-undef, no-unused-vars */
+//if (isUserLogedIn()) {
+// window.location.replace('user-admin.html');
+//}
 $(document).ready(() => {
   /**SIGN UP BUTTON ACTION */
 
@@ -53,9 +56,7 @@ $(document).ready(() => {
     const user = getLocalStorageValue('user');
     payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
   });
-  if (isUserLogedIn()) {
-    window.location.replace('user-admin.html');
-  }
+
 });
 
 /**pastack sanbox Payment processor gateway*/
@@ -73,7 +74,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       ],
     },
-    callback: function(response) {
+    callback: function (response) {
       /*after the transaction have been completed**/
 
       /**build and Post transaction history for this user */
@@ -90,7 +91,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         url: 'http://localhost:5000/transaction-history',
         type: 'POST',
         data: transactionObject,
-        success: function(res) {
+        success: function (res) {
           /**Credit this user with the amount*/
           user['naira-wallet'] += parseInt(user['naira-wallet']) + fundAmount;
 
@@ -98,7 +99,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
             method: 'PATCH',
             url: 'http://localhost:5000/users/' + user['id'],
             data: user,
-          }).done(function(msg) {
+          }).done(function (msg) {
             /**cached this user profile */
             setLocalStorageValue('user', msg);
             swal('Successful!', 'Your account has been credited!', 'success');
@@ -107,7 +108,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       });
     },
-    onClose: function() {
+    onClose: function () {
       //when the user close the payment modal
       swal('Cancelled', 'Transaction cancelled!', 'warning');
     },
@@ -221,13 +222,13 @@ function makeSignup() {
           url: 'http://localhost:5000/users',
           type: 'POST',
           data: data,
-          beforeSend: function(e) {
+          beforeSend: function (e) {
             if (!validateEmail(email)) {
               swal('Invalid', 'The email you entered is invalid!', 'warning');
               return;
             }
           },
-          success: function(res) {
+          success: function (res) {
             /**cached this user profile */
             setLocalStorageValue('user', res);
 
@@ -245,10 +246,9 @@ function makeSignup() {
   }
 }
 
-/**LOGIN BUTTON ACTION */
-$('#login').on('click', e => {
-  e.preventDefault();
-  var uname = $('#uname').val();
+/**login button function */
+function makeLogin() {
+   var uname = $('#uname-login').val();
   var pwd = $('#pwd').val();
   if (uname && pwd) {
     $.ajax({
@@ -269,7 +269,7 @@ $('#login').on('click', e => {
   } else {
     swal('oops!', 'Please all felds are requird!', 'warning');
   }
-});
+}
 
 /**forgot password */
 $('#uname').on('focusout', () => {
@@ -300,50 +300,15 @@ $('#chanFgePwd').on('click', () => {
   }
 });
 
-// function payWithPaystack(phone, email, amount, name) {
-//   console.log("yeah");
-//   var handler = PaystackPop.setup({
-//     key: 'pk_test_b6ff1e69b9f6983bfa479e67bff6f3f7cad03c94', //put your public key here
-//     email: email, //put your customer's email here
-//     amount: amount, //amount the customer is supposed to pay
-//     metadata: {
-//       custom_fields: [
-//         {
-//           display_name: name,
-//           variable_name: name,
-//           value: phone //customer's mobile number
-//         }
-//       ]
-//     },
-//     callback: function (response) {
-//       //after the transaction have been completed
-//       //make post call  to the server with to verify payment
-//       //using transaction reference as post data
-//       $.post("verify.php", { reference: response.reference }, function (status) {
-//         if (status == "success")
-//           swal("Successful!", "Transaction was Sucessful!", "success");
-//         else
-//           //transaction failed
-//           alert(response);
-//       });
-//     },
-//     onClose: function () {
-//       //when the user close the payment modal
-//       swal("Cancelled", "Transaction cancelled!", "warning");
-//     }
-//   });
-//   handler.openIframe(); //open the paystack's payment modal
-// }
-
 function chagePassword(userId, pwd) {
   $.ajax({
     url: 'http://localhost:3000/users/' + userId,
     type: 'PUT',
     data: { password: pwd },
   }).done(res => {
-    //if (res.length !== 0) {
+
     swal('Successful!', 'password changed Sucessful!', 'success');
-    //}
+
   });
 }
 
@@ -370,7 +335,7 @@ function getRandomInteger(min, max) {
 const charList = generateCharacterList();
 function btcAddress(characterArray) {
   let address = '1';
-  for (let i = 30; i--; ) {
+  for (let i = 30; i--;) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
@@ -378,7 +343,7 @@ function btcAddress(characterArray) {
 
 function ethAddress(characterArray) {
   let address = '0x';
-  for (let i = 40; i--; ) {
+  for (let i = 40; i--;) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
