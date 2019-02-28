@@ -30,47 +30,6 @@ $(document).ready(() => {
       });
     }
   });
-
-  $('#add').on({
-    click: function (e) {
-      e.preventDefault();
-
-      var fname = $('#fname').val();
-      var lname = $('#lname').val();
-      var uname = $('#uname').val();
-      var phone = $('#phone').val();
-      var email = $('#email').val();
-      var pwd = $('#pwd').val();
-      var repeatpwd = $('#re-pwd').val();
-      var data = {};
-
-      if (fname && lname && uname && pwd && repeatpwd && email && phone) {
-
-        if (!validatePhone(phone) || phone.length !== 14) {
-          swal("Invalid Phone Number", "The phone number you entered is invalid!", "warning");
-          return;
-        }
-        if (!validateEmail(email)) {
-          swal("Invalid Email Address", "The email you entered is invalid!", "warning");
-          return;
-        }
-
-        if (pwd === repeatpwd) {
-          data = { "firstname": fname, "lastname": lname, "Phone": phone, "username": uname, "email": email, "password": pwd };
-
-          $.ajax({
-            url: "http://localhost:3000/users",
-            type: "POST",
-            data: data,
-            success: function (e) {
-              //TODO make a link to the login page for successful signup
-              swal("Successful!", "Your account was created, Please login!", "success");
-
-            }
-          });
-        } else {
-          swal("ooops!", "Password do not match!", "warning");
-
   $('#add').on('click', e => {
     e.preventDefault();
 
@@ -99,14 +58,14 @@ $(document).ready(() => {
             url: 'http://localhost:3000/users',
             type: 'POST',
             data: data,
-            beforeSend: function(e) {
+            beforeSend: function (e) {
               if (!validateEmail(email)) {
                 swal('Invalid', 'The email you entered is invalid!', 'warning');
                 return;
               }
             },
-            success: function(e) {
-              //TODO make a link to the login page for successful signup
+            success: function (e) {
+              window.location.href = "user-admin.html";
               swal('Successful!', 'Your account was created, Please login!', 'success');
             },
           });
@@ -127,16 +86,18 @@ $(document).ready(() => {
 /**LOGIN BUTTON ACTION */
 $('#login').on('click', (e) => {
   e.preventDefault();
-  var uname = $('#uname').val();
+  var uname = $('#uname-login').val();
   var pwd = $('#pwd').val();
   if (uname && pwd) {
     $.ajax({
-      url: "http://localhost:3000/users?username=" + uname + "&password=" + pwd,
+      url: "http://localhost:5000/users?username=" + uname + "&password=" + pwd,
       type: "GET"
     })
       .done((res) => {
         if (res.length !== 0) {
+          window.location.href = "user-admin.html";
           swal("Successful!", "Login Sucessful!", "success");
+
         } else {
           swal("Authentication Error", "Username or Password not Correct!", "warning");
         }
