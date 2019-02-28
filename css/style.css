@@ -23,9 +23,12 @@ footer p a {
 #login-form,
 #signup-form {
   padding: 30px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0px;
+  /* color: white; */
+  font-size: 1.2em;
+  font-weight: 900;
 }
 
 /* body {
@@ -76,9 +79,10 @@ div#tradingview_deb17 {
   background-color: white;
 }
 #site-container {
-  background-image: url(../img/bg2.jpg);
+  background-image: url(../img/bg6.jpg);
   background-size: cover;
   min-height: 100vh;
+  background-position: center center;
 }
 #bitcoin-usd-price,
 #bitcoin-ngn-price {
@@ -109,4 +113,12 @@ div#tradingview_deb17 {
   display: block;
   width: 100%;
   border-radius: 100px;
+}
+
+.modal-dialog {
+  margin-top: calc(20vh);
+}
+
+#dashboard-deposit-form {
+  padding: 20px;
 }

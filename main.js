@@ -118,19 +118,13 @@ function payWithPaystack(name, email, phone, fundAmount) {
 /**retrieves current currency price */
 function getCryptoPrices() {
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-  const url = 'https://api.binance.com/api/v1/ticker/price';
+  const url = 'https://api.binance.com/api/v1/ticker/price?symbol=BTCUSDT';
   let btcPrice = 0;
   fetch(proxyurl + url, { method: 'GET' })
     .then(response => response.json())
     .then(data => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].symbol == 'BTCUSDT') {
-          btcPrice = Number(data[i].price).toFixed(2);
-        }
-      }
-      const btcNairaPrice = Number(btcPrice * 360)
-        .toFixed(2)
-        .toLocaleString(undefined, { maximumFractionDigits: 2 });
+      btcPrice = Number(data.price).toFixed(2);
+      const btcNairaPrice = Number(btcPrice * 360).toFixed(2);
       let btcUSDPrice = document.querySelector('#bitcoin-usd-price');
       let btcNGNPrice = document.querySelector('#bitcoin-ngn-price');
       btcUSDPrice.innerHTML = `<div class="bitcoin-usd-price">&#36;${Number(btcPrice)}</div>`;
