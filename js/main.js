@@ -1,3 +1,4 @@
+/* eslint-disable no-undef, no-unused-vars */
 $(document).ready(function() {
   const $emailLogin = document.querySelector('#input');
   const $passwordLogin = document.querySelector('#password-login');
