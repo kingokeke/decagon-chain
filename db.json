@@ -1,0 +1,242 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first-name": "Kingsley",
+      "last-name": "Okeke",
+      "email": "kingsley_okeke@ymail.com",
+      "password": "kingsley12345",
+      "phone-number": "08102159211",
+      "country": "Nigeria",
+      "language": "English",
+      "naira-wallet": "370000",
+      "verification": "1"
+    },
+    {
+      "id": 2,
+      "first-name": "Scooby",
+      "last-name": "Dooby",
+      "email": "scoobydoo@gmail.com",
+      "password": "scoobydoobydoo",
+      "phone-number": "08023456789"
+    },
+    {
+      "id": 3,
+      "first-name": "Fred",
+      "last-name": "Weasley",
+      "email": "fredweaslewy@gmail.com",
+      "password": "ilovequidditch",
+      "phone-number": "08098765432"
+    },
+    {
+      "id": 4,
+      "first-name": "George",
+      "last-name": "Frisby",
+      "email": "goergefrisby@gmail.com",
+      "password": "whaddayasay",
+      "phone-number": "07055234587"
+    },
+    {
+      "firstname": "gggg",
+      "lastname": "ggff",
+      "Phone": "+2347032150416",
+      "username": "solomon",
+      "email": "ek@hh.com",
+      "password": "s",
+      "id": 5
+    },
+    {
+      "firstname": "king",
+      "lastname": "uuiui",
+      "Phone": "+2347032150416",
+      "username": "i",
+      "email": "e2k@hh.com",
+      "password": "s",
+      "id": 6
+    },
+    {
+      "firstname": "king",
+      "lastname": "king",
+      "phone": "+2347032150416",
+      "username": "king4",
+      "email": "ek1@hh.com",
+      "password": "s",
+      "country": "Nigeria",
+      "language": "English",
+      "naira-wallet": "0",
+      "verification": "0",
+      "id": 7
+    },
+    {
+      "firstname": "gggg",
+      "lastname": "uuiui",
+      "phone": "+2347032150416",
+      "username": "king41",
+      "email": "matthiasogbodo2@gmail.com",
+      "password": "s",
+      "country": "Nigeria",
+      "language": "English",
+      "naira-wallet": "0",
+      "verification": "0",
+      "id": 8
+    }
+  ],
+  "wallets": [
+    {
+      "id": 1,
+      "user-id": 3,
+      "wallet-name": "Main Wallet",
+      "currency": {
+        "BTC": {
+          "address": "1aVxphG1bNcYFp2oEtcTD3avvNghzzl",
+          "total-balance": 0.947,
+          "available-balance": 0.947
+        },
+        "ETH": {
+          "address": "1aVxphG1bNcYFp2oEtcTD3avvNghzzl",
+          "total-balance": 0.947,
+          "available-balance": 0.947
+        }
+      }
+    },
+    {
+      "id": 2,
+      "user-id": 1,
+      "wallet-name": "My Wallet",
+      "balances": {
+        "BTC": 0.404,
+        "ETH": 97.993,
+        "XRP": 34,
+        "LTC": 40.842,
+        "USDT": 3.723
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "type": "buy",
+      "timestamp": 1551220305103,
+      "sender-id": 4,
+      "sender-address": "1lLpOtKtlKqiTQO5MRbv1mjky98JBZE",
+      "receiver-address": "1VFcytBfif8H16aHc12xX94iuUvBQg9",
+      "amount": "0.368",
+      "base-currency": "BTC",
+      "quote-currency": "Naira",
+      "exchange-rate": "1,329,283",
+      "received": "472,393"
+    },
+    {
+      "id": 1,
+      "type": "sell",
+      "timestamp": 1551220680324,
+      "sender-id": 4,
+      "sender-address": "1lLpOtKtlKqiTQO5MRbv1mjky98JBZE",
+      "receiver-address": "1VFcytBfif8H16aHc12xX94iuUvBQg9",
+      "amount": "0.368",
+      "base-currency": "BTC",
+      "quote-currency": "Naira",
+      "exchange-rate": "1,329,283",
+      "received": "472,393"
+    }
+  ],
+  "app": {
+    "naira-api": {
+      "service-provider": "Currency Layer",
+      "website": "www.currencylayer.com",
+      "api-key": "1ff6fa7cf24a020bcfc7de477de91c91",
+      "base-url": "http://apilayer.net/api/"
+    },
+    "crypto-api": {
+      "service-provider": "Binance",
+      "website": "www.binance.com",
+      "api-key": "",
+      "base-url": "https://api.binance.com/api/",
+      "rates": [
+        {
+          "BTCUSDT": 3790.73
+        },
+        {
+          "ETHUSDT": 150.34
+        },
+        {
+          "LTCUSDT": 30.439
+        },
+        {
+          "XRPUSDT": 0.000429
+        },
+        {
+          "ETHBTC": 0.005
+        }
+      ]
+    }
+  },
+  "transaction-history": [
+    {
+      "id": 1,
+      "userId": 5,
+      "reference": "T411235554953141",
+      "trans": "121333407",
+      "transaction": "121333407",
+      "timestamp": "898986012"
+    },
+    {
+      "userId": "1",
+      "reference": "T849648189448492",
+      "trans": "121365780",
+      "transaction": "121365780",
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "reference": "T585766125682505",
+      "trans": "121366201",
+      "transaction": "121366201",
+      "id": 3
+    },
+    {
+      "userId": "1",
+      "reference": "T844283538462522",
+      "trans": "121367181",
+      "transaction": "121367181",
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "reference": "T162670763754309",
+      "trans": "121367923",
+      "transaction": "121367923",
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "reference": "T401897521105743",
+      "trans": "121370338",
+      "transaction": "121370338",
+      "id": 6
+    },
+    {
+      "userId": "1",
+      "reference": "T910036396779486",
+      "trans": "121377866",
+      "transaction": "121377866",
+      "id": 7
+    },
+    {
+      "userId": "1",
+      "reference": "T036359743868540",
+      "trans": "121385925",
+      "transaction": "121385925",
+      "amount": "370000",
+      "id": 8
+    },
+    {
+      "userId": "1",
+      "reference": "T904294343888689",
+      "trans": "121386561",
+      "transaction": "121386561",
+      "amount": "370000",
+      "id": 9
+    }
+  ]
+}

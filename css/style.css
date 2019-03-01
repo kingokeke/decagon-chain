@@ -1,0 +1,142 @@
+body {
+  /* font-size: 1.1rem; */
+}
+footer p {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  font-size: 12px;
+  text-align: center;
+  display: block;
+  background-color: #ccc;
+  width: 100%;
+  left: 0;
+  font-weight: bold;
+  padding: 3px;
+}
+
+footer p a {
+  text-decoration: none;
+}
+
+#login-form-wrapper,
+#signup-form-wrapper {
+  margin-top: 200px;
+}
+#login-form,
+#signup-form {
+  padding: 30px;
+  background-color: rgba(200, 200, 200, 0.95);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px;
+  /* color: white; */
+  font-size: 1.2em;
+  font-weight: 900;
+  color: black;
+}
+
+/* body {
+  /* background-image: url(../img/bg1.jpg); 
+} */
+h1 {
+  text-align: center;
+  color: white;
+}
+.swal-button {
+  background-color: #0062cc;
+}
+
+.chart-container {
+  height: 600px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  padding-left: 30px;
+}
+
+div#tradingview_deb17 {
+  height: 600px;
+}
+
+.bitcoin-news-body {
+  margin-bottom: -7px;
+}
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important;
+  padding-left: 40px;
+}
+.mobile-menu-button {
+  display: none !important;
+}
+.page-wrapper > .container-fluid {
+  padding: 20px;
+  min-height: calc(100vh - 100px);
+}
+.currency-amount {
+  font-size: 1.5em;
+}
+.d-flex.flex-row.comment-row.m-t-0:hover {
+  background-color: white;
+}
+#site-container {
+  background-image: url(../img/bg6.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  background-position: center center;
+}
+#bitcoin-usd-price,
+#bitcoin-ngn-price {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.btc-price-dashboard {
+  text-align: center;
+}
+
+.btc-price-dashboard h4 {
+  font-weight: 900 !important;
+}
+
+.bitcoin-news-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+#user-profile-image {
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  margin: 150px auto 50px;
+}
+#user-profile-image img {
+  display: block;
+  width: 100%;
+  border-radius: 100px;
+}
+
+.modal-dialog {
+  margin-top: calc(20vh);
+}
+
+#dashboard-deposit-form {
+  padding: 20px;
+}
+#profile-view {
+  min-height: calc(100vh - 100px);
+}
+#dashboard-logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+#navbarSupportedContent {
+  background: #1f262d !important;
+}
+#login-form h3,
+#signup-form h3 {
+  margin-bottom: 50px;
+}
