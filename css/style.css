@@ -122,3 +122,6 @@ div#tradingview_deb17 {
 #dashboard-deposit-form {
   padding: 20px;
 }
+#profile-view {
+  min-height: calc(100vh - 100px);
+}
