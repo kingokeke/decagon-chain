@@ -3,6 +3,7 @@
 // window.location.replace('user-admin.html');
 //}
 $(document).ready(() => {
+
   /**SIGNUP BUTTON ACTION */
   $('#add').on('click', e => {
     e.preventDefault();
@@ -70,23 +71,23 @@ function registerFocusOutListeners() {
 
 }
 
-  $('#add').on('click', e => {
-    e.preventDefault();
-    makeSignup();
-  });
+$('#add').on('click', e => {
+  e.preventDefault();
+  makeSignup();
+});
 
-  /**LOGIN BUTTON ACTION */
-  $('#login').on('click', e => {
-    e.preventDefault();
-    makeLogin();
-  });
+/**LOGIN BUTTON ACTION */
+$('#login').on('click', e => {
+  e.preventDefault();
+  makeLogin();
+});
 
-  /**PAYMENT BUTTON ACTION */
-  $('#deposit').on('click', () => {
-    /**get cached user */
-    const user = getLocalStorageValue('user');
-    payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
-  });
+/**PAYMENT BUTTON ACTION */
+$('#deposit').on('click', () => {
+  /**get cached user */
+  const user = getLocalStorageValue('user');
+  payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
+});
 
 
 
@@ -105,7 +106,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       ],
     },
-    callback: function(response) {
+    callback: function (response) {
       /*after the transaction have been completed**/
 
       /**build and Post transaction history for this user */
@@ -122,7 +123,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         url: 'http://localhost:5000/transaction-history',
         type: 'POST',
         data: transactionObject,
-        success: function(res) {
+        success: function (res) {
           /**Credit this user with the amount*/
           user['naira-wallet'] += parseInt(user['naira-wallet']) + fundAmount;
 
@@ -130,7 +131,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
             method: 'PATCH',
             url: 'http://localhost:3000/users/' + user['id'],
             data: user,
-          }).done(function(msg) {
+          }).done(function (msg) {
             /**cached this user profile */
             setLocalStorageValue('user', msg);
             swal('Successful!', 'Your account has been credited!', 'success');
@@ -139,7 +140,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       });
     },
-    onClose: function() {
+    onClose: function () {
       //when the user close the payment modal
       swal('Cancelled', 'Transaction cancelled!', 'warning');
     },
@@ -297,13 +298,13 @@ function makeSignup() {
           url: 'http://localhost:5000/users',
           type: 'POST',
           data: data,
-          beforeSend: function(e) {
+          beforeSend: function (e) {
             if (!validateEmail(email)) {
               swal('Invalid', 'The email you entered is invalid!', 'warning');
               return;
             }
           },
-          success: function(res) {
+          success: function (res) {
             /**cached this user profile */
             setLocalStorageValue('user', res);
 
@@ -383,7 +384,7 @@ $('#chanFgePwd').on('click', () => {
 function chagePassword(userId, pwd) {
   $.ajax({
     url: 'http://localhost:3000/users/' + userId,
-    type: 'PUT',
+    type: 'PATCH',
     data: { password: pwd },
   }).done(res => {
     swal('Successful!', 'password changed Sucessful!', 'success');
@@ -413,7 +414,7 @@ function getRandomInteger(min, max) {
 const charList = generateCharacterList();
 function btcAddress(characterArray) {
   let address = '1';
-  for (let i = 30; i--; ) {
+  for (let i = 30; i--;) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
@@ -421,7 +422,7 @@ function btcAddress(characterArray) {
 
 function ethAddress(characterArray) {
   let address = '0x';
-  for (let i = 40; i--; ) {
+  for (let i = 40; i--;) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
