@@ -87,7 +87,7 @@ function registerFocusOutListeners() {
     const user = getLocalStorageValue('user');
     payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
   });
-});
+
 
 
 /**pastack sanbox Payment processor gateway*/
