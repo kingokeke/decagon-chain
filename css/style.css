@@ -1,3 +1,6 @@
+body {
+  font-size: 1.1rem;
+}
 footer p {
   position: fixed;
   bottom: 0;
@@ -124,4 +127,11 @@ div#tradingview_deb17 {
 }
 #profile-view {
   min-height: calc(100vh - 100px);
+}
+#dashboard-logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+#navbarSupportedContent {
+  background: #1f262d !important;
 }

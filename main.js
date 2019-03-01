@@ -132,10 +132,10 @@ function getBTCPrices() {
     });
 }
 
-getBTCPrices();
-setInterval(() => {
-  getBTCPrices();
-}, 10000);
+// getBTCPrices();
+// setInterval(() => {
+//   getBTCPrices();
+// }, 10000);
 
 /**email validator */
 function validateEmail(email) {

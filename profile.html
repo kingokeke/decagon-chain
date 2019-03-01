@@ -9,7 +9,7 @@
     <meta name="author" content="" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png" />
-    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <title>User Profile | Decagon Chain</title>
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -53,7 +53,7 @@
             <!-- Logo -->
             <!-- ============================================================== -->
             <a class="navbar-brand" href="user-admin.html"
-              >Decagon Chain
+              ><span id="dashboard-logo"><img src="img/logo1.png" alt="logo">Decagon Chain
               <!-- Logo icon -->
               <b class="logo-icon p-l-10">
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -373,11 +373,19 @@
                     <br />
                     <button
                       type="button"
-                      class="btn btn-cyan btn-lg"
+                      class="btn btn-cyan m-r-10 btn-lg"
                       data-toggle="modal"
                       data-target="#profile-edit-user"
                     >
                       Edit Profile
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger m-l-10 btn-lg"
+                      data-toggle="modal"
+                      data-target="#profile-delete-user"
+                    >
+                      Delete Account
                     </button>
                   </div>
                   <div class="col-lg-3"></div>
@@ -405,8 +413,8 @@
                 </div>
                 <div class="modal-body">
                   <form class="form-horizontal">
-                    <div class="card-body">
-                      <h4 class="card-title">Edit Profile</h4>
+                    <div class="card-body text-center">
+                      <h3 class="card-title text-uppercase">Edit Profile</h3>
                       <div class="form-group row">
                         <label
                           for="edit-profile-firstname"
@@ -521,6 +529,61 @@
             </div>
           </div>
         </div>
+        <div class="">
+          <div
+            class="modal fade"
+            id="profile-delete-user"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="profile-delete-user"
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <div class="modal-dialog" role="document ">
+              <div class="modal-content ">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true ">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form class="form-horizontal">
+                    <div class="card-body text-center">
+                      <h4 class="card-title">Delete Account</h4>
+                      <p>
+                        Are you sure you want to delete your account? Please note that this action
+                        is irreversible and all your data will be lost.
+                      </p>
+                      <p>To proceed, enter your password and click the delete button.</p>
+                      <div class="form-group row">
+                        <label
+                          for="edit-profile-password"
+                          class="col-sm-3 text-right control-label col-form-label"
+                          >Password</label
+                        >
+                        <div class="col-sm-9">
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="edit-profile-password"
+                            placeholder="Password"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="border-top">
+                      <div class="card-body text-center">
+                        <button id="edit-profile-button" type="button" class="btn btn-danger">
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
@@ -528,8 +591,9 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer text-center">
-          All Rights Reserved by Matrix-admin. Designed and Developed by
-          <a href="https://wrappixel.com">WrapPixel</a>.
+          <!-- All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://wrappixel.com">WrapPixel</a>. -->
+          &copy; 2019 Decagon Chain Ltd. All rights reserved.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
