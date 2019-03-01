@@ -3,42 +3,7 @@
 // window.location.replace('user-admin.html');
 //}
 $(document).ready(() => {
-  /**SIGN UP BUTTON ACTION */
-
-  $('#email').on('focusout', () => {
-    if ($('#email').val()) {
-      $.ajax({
-        url: 'http://localhost:3000/users?email=' + $('#email').val(),
-        type: 'GET',
-      }).done(email_res => {
-        if (email_res.length > 0) {
-          swal(
-            'Email conflict',
-            'This email address has been taken. Please use a different one!',
-            'warning'
-          );
-          $('#email').val('');
-        }
-      });
-    }
-  });
-  $('#uname').on('focusout', () => {
-    if ($('#uname').val()) {
-      $.ajax({
-        url: 'http://localhost:3000/users?username=' + $('#uname').val(),
-        type: 'GET',
-      }).done(uname_res => {
-        if (uname_res.length > 0) {
-          swal(
-            'Username conflict',
-            'This username has been taken. Please use a different one!',
-            'warning'
-          );
-          $('#uname').val('');
-        }
-      });
-    }
-  });
+  /**SIGNUP BUTTON ACTION */
   $('#add').on('click', e => {
     e.preventDefault();
     makeSignup();
@@ -54,11 +19,55 @@ $(document).ready(() => {
   $('#deposit').on('click', () => {
     /**get cached user */
     const user = getLocalStorageValue('user');
-    payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
+
+
+
+    payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone, amount);
   });
 
+  registerFocusOutListeners();
 });
 
+function registerFocusOutListeners() {
+  /**email field onFocusout listener */
+  $('#email').on('focusout', () => {
+    let email = $('#email').val();
+    if (email) {
+      $.ajax({
+        url: 'http://localhost:3000/users?email=' + email,
+        type: 'GET'
+      }).done(email_res => {
+        if (email_res.length > 0) {
+          swal(
+            'Email conflict', 'This email address has been taken. Please use a different one!',
+            'warning'
+          );
+          $('#email').val('');
+        }
+      });
+    }
+  });
+
+
+  /**username field onFocusout listener */
+  $('#uname').on('focusout', () => {
+    let uname = $('#uname').val();
+    if (uname) {
+      $.ajax({
+        url: 'http://localhost:3000/users?username=' + uname,
+        type: 'GET'
+      }).done(uname_res => {
+        if (uname_res.length > 0) {
+          swal(
+            'Username conflict',
+            'This username has been taken. Please use a different one!', 'warning'
+          );
+          $('#uname').val('');
+        }
+      });
+    }
+  });
+}
 /**pastack sanbox Payment processor gateway*/
 function payWithPaystack(name, email, phone, fundAmount) {
   var handler = PaystackPop.setup({
@@ -97,7 +106,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
 
           $.ajax({
             method: 'PATCH',
-            url: 'http://localhost:5000/users/' + user['id'],
+            url: 'http://localhost:3000/users/' + user['id'],
             data: user,
           }).done(function (msg) {
             /**cached this user profile */
@@ -187,6 +196,10 @@ function getLocalStorageValue(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
+function removeLocalStorageValue(key) {
+  localStorage.removeItem(key);
+}
+
 function isUserLogedIn() {
   return getLocalStorageValue('user');
 }
@@ -204,42 +217,50 @@ function makeSignup() {
 
   if (fname && lname && uname && pwd && repeatpwd && email && phone) {
     if (validateEmail(email)) {
-      if (pwd === repeatpwd) {
-        data = {
-          firstname: fname,
-          lastname: lname,
-          phone: phone,
-          username: uname,
-          email: email,
-          password: pwd,
-          country: 'Nigeria',
-          language: 'English',
-          'naira-wallet': 0,
-          verification: 0,
-        };
+      if (validatePhone(phone)) {
+        if (pwd === repeatpwd) {
+          data = {
+            firstname: fname,
+            lastname: lname,
+            phone: phone,
+            username: uname,
+            email: email,
+            password: pwd,
+            'is-active': 1,
+            country: 'Nigeria',
+            language: 'English',
+            'naira-wallet': 0,
+            verification: 0,
+          };
 
-        $.ajax({
-          url: 'http://localhost:5000/users',
-          type: 'POST',
-          data: data,
-          beforeSend: function (e) {
-            if (!validateEmail(email)) {
-              swal('Invalid', 'The email you entered is invalid!', 'warning');
-              return;
-            }
-          },
-          success: function (res) {
-            /**cached this user profile */
-            setLocalStorageValue('user', res);
+          $.ajax({
+            url: 'http://localhost:3000/users',
+            type: 'POST',
+            data: data,
+            beforeSend: function (e) {
+              if (!validateEmail(email)) {
+                swal('Invalid', 'The email you entered is invalid!', 'warning');
+                return;
+              }
+            },
+            success: function (res) {
+              $('#email').val('');
+              $('#uname').val('');
 
-            window.location.href = 'user-admin.html';
-            swal('Successful!', 'Your account was created, Please login!', 'success');
-            //populatWalletBalance();
-          },
-        });
-      } else {
-        swal('oops!', 'Please all felds are requird!', 'warning');
-      }
+              /**cached this user profile */
+              setLocalStorageValue('user', res);
+              swal('Successful!', 'Your account was created, Please login!', 'success');
+              window.location.href = 'user-admin.html';
+
+              //populatWalletBalance();
+            },
+          });
+        } else {
+          swal('oops!', 'Password mismatch, try again!', 'warning');
+        }
+      } else { swal('Invalid', 'Invalid phone number, try again!', 'warning'); }
+    } else {
+      swal('Invalid', 'The email you entered is invalid!', 'warning');
     }
   } else {
     swal('Error!', 'Please all fields are required!', 'warning');
@@ -248,19 +269,23 @@ function makeSignup() {
 
 /**login button function */
 function makeLogin() {
-   var uname = $('#uname-login').val();
+  var uname = $('#uname-login').val();
   var pwd = $('#pwd').val();
   if (uname && pwd) {
     $.ajax({
-      url: 'http://localhost:5000/users?username=' + uname + '&password=' + pwd,
+      url: 'http://localhost:3000/users?username=' + uname + '&password=' + pwd,
       type: 'GET',
     }).done(res => {
       if (res.length !== 0) {
-        /**cached this user profile */
-        setLocalStorageValue('user', res);
+        if (res[0]['is-active'] == 1) {
+          /**cached this user profile */
+          setLocalStorageValue('user', res);
 
-        window.location.href = 'user-admin.html';
-        swal('Successful!', 'Login Sucessful!', 'success');
+          window.location.href = 'user-admin.html';
+          swal('Successful!', 'Login Sucessful!', 'success');
+        } else {
+          swal('Not Found', 'This account has been deleted!', 'warning');
+        }
         //populatWalletBalance();
       } else {
         swal('Authentication Error', 'Username or Password not Correct!', 'warning');
@@ -349,8 +374,55 @@ function ethAddress(characterArray) {
   return address;
 }
 
-const btcAdd = btcAddress();
-const ethAdd = ethAddress();
 
-console.log(btcAdd);
-console.log(ethAdd);
+
+/**Performs delete */
+function closAccount() {
+  swal({
+    title: "ARE YOU SURE?",
+    text: "You will not be able to recover your account again!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+    .then((willDelete) => {
+
+      if (willDelete) {
+        swal("Please confirm your password", {
+          content: "input",
+        })
+          .then((password) => {
+            if (password) {
+              let user = getLocalStorageValue("user");
+              if (password === user.password) {
+                user['is-active'] = 0;
+
+                $.ajax({
+                  method: 'PATCH',
+                  url: 'http://localhost:3000/users/' + user['id'],
+                  data: user,
+                }).done(function (msg) {
+                  /**clear this user profile */
+                  removeLocalStorageValue('user');
+                  swal('Successful!', 'Your account has ben deleted successfully', 'success');
+                  //populatWalletBalance();
+                });
+
+
+              }
+
+            } else {
+              swal('Empty input', 'You need to enter your password before proceeding!', 'warning');
+            }
+          });
+      } else {
+        swal("Your account is safe!");
+      }
+    });
+}
+
+// const btcAdd = btcAddress();
+// const ethAdd = ethAddress();
+
+// console.log(btcAdd);
+// console.log(ethAdd);
