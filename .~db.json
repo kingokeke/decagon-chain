@@ -202,6 +202,20 @@
       "naira-wallet": "0",
       "verification": "0",
       "id": 17
+    },
+    {
+      "firstname": "joe",
+      "lastname": "hoeseph",
+      "phone": "+2347032150416",
+      "username": "joe",
+      "email": "joe@gmi.com",
+      "password": "joe",
+      "is-active": "1",
+      "country": "Nigeria",
+      "language": "English",
+      "naira-wallet": "0",
+      "verification": "0",
+      "id": 18
     }
   ],
   "wallets": [
