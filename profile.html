@@ -334,14 +334,14 @@
                   ><i class="mdi mdi-account"></i><span class="hide-menu">Profile</span></a
                 >
               </li>
-              <li class="sidebar-item">
+              <!-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="settings.html"
                   aria-expanded="false"
                   ><i class="fas fa-cog"></i><span class="hide-menu">Settings</span></a
                 >
-              </li>
+              </li> -->
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -366,7 +366,7 @@
                     <div id="user-profile-image">
                       <img src="img/profile-image.png" alt="profile image" />
                     </div>
-                    <p><span id="profile-user-full-name"></span></p>
+                    <p><span id="profile-user-fullname"></span></p>
                     <p>Email: <span id="profile-user-email"></span></p>
                     <p>Phone: <span id="profile-user-phone"></span></p>
                     <p>Country: <span id="profile-user-country"></span></p>
@@ -376,6 +376,7 @@
                       class="btn btn-cyan m-r-10 btn-lg"
                       data-toggle="modal"
                       data-target="#profile-edit-user"
+                      
                     >
                       Edit Profile
                     </button>
@@ -518,8 +519,8 @@
                     </div>
                     <div class="border-top">
                       <div class="card-body text-center">
-                        <button id="edit-profile-button" type="button" class="btn btn-primary">
-                          Submit
+                        <button id="edit-profile-button" type="button" class="btn btn-info">
+                          Update
                         </button>
                       </div>
                     </div>
@@ -557,7 +558,7 @@
                       <p>To proceed, enter your password and click the delete button.</p>
                       <div class="form-group row">
                         <label
-                          for="edit-profile-password"
+                          for="delete-profile-password"
                           class="col-sm-3 text-right control-label col-form-label"
                           >Password</label
                         >
@@ -565,7 +566,7 @@
                           <input
                             type="password"
                             class="form-control"
-                            id="edit-profile-password"
+                            id="delete-profile-password"
                             placeholder="Password"
                           />
                         </div>
@@ -573,7 +574,7 @@
                     </div>
                     <div class="border-top">
                       <div class="card-body text-center">
-                        <button id="edit-profile-button" type="button" class="btn btn-danger">
+                        <button id="delete-profile-button" type="button" class="btn btn-danger">
                           Delete
                         </button>
                       </div>

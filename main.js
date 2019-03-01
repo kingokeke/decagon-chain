@@ -118,12 +118,12 @@ function payWithPaystack(name, email, phone, fundAmount) {
 /**retrieves current currency price */
 function getBTCPrices() {
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-  const url = 'https://api.binance.com/api/v1/ticker/price?symbol=BTCUSDT';
+  const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd';
   let btcPrice = 0;
   fetch(proxyurl + url, { method: 'GET' })
     .then(response => response.json())
     .then(data => {
-      btcPrice = Number(data.price).toFixed(2);
+      btcPrice = data.bitcoin.usd;
       const btcNairaPrice = Number(btcPrice * 360).toFixed(2);
       let btcUSDPrice = document.querySelector('#bitcoin-usd-price');
       let btcNGNPrice = document.querySelector('#bitcoin-ngn-price');
@@ -132,10 +132,10 @@ function getBTCPrices() {
     });
 }
 
-// getBTCPrices();
-// setInterval(() => {
-//   getBTCPrices();
-// }, 10000);
+getBTCPrices();
+setInterval(() => {
+  getBTCPrices();
+}, 10000);
 
 /**email validator */
 function validateEmail(email) {
@@ -340,18 +340,19 @@ function ethAddress(characterArray) {
   return address;
 }
 
-// const btcAdd = btcAddress();
-// const ethAdd = ethAddress();
-
-// console.log(btcAdd);
-// console.log(ethAdd);
-
 // Kingsley Edit
+const editProfileFirstName = document.querySelector('#edit-profile-firstname');
+const editProfileLastName = document.querySelector('#edit-profile-lastname');
+const editProfilePhone = document.querySelector('#edit-profile-phone');
+const editProfilePicture = document.querySelector('#edit-profile-picture');
+const editProfilePassword = document.querySelector('#edit-profile-password');
+const editProfileConfirm = document.querySelector('#edit-profile-confirm');
+const editProfileCountry = document.querySelector('#edit-profile-country');
 
-fetch('http://localhost:3000/users?first-name=Kingsley')
+fetch(`http://localhost:3000/users?first-name=Kingsley`)
   .then(response => response.json())
   .then(data => {
-    document.querySelector('#profile-user-full-name').innerHTML = `${data[0]['first-name']} ${
+    document.querySelector('#profile-user-fullname').innerHTML = `${data[0]['first-name']} ${
       data[0]['last-name']
     }`;
     document.querySelector('#profile-user-email').innerHTML = `${data[0]['email']}`;
@@ -363,52 +364,4 @@ fetch('http://localhost:3000/users?first-name=Kingsley')
     document.querySelector('#edit-profile-password').value = `${data[0]['password']}`;
     document.querySelector('#edit-profile-confirm').value = `${data[0]['password']}`;
     document.querySelector('#edit-profile-country').value = `${data[0]['country']}`;
-
-    console.log(data);
   });
-
-const editProfileButton = document.querySelector('#edit-profile-button');
-editProfileButton.onclick = () => {
-  const editProfileFirstName = document.querySelector('#edit-profile-firstname');
-  const editProfileLastName = document.querySelector('#edit-profile-lastname');
-  const editProfilePhone = document.querySelector('#edit-profile-phone');
-  const editProfilePicture = document.querySelector('#edit-profile-picture');
-  const editProfilePassword = document.querySelector('#edit-profile-password');
-  const editProfileConfirm = document.querySelector('#edit-profile-confirm');
-  const editProfileCountry = document.querySelector('#edit-profile-country');
-  if (editProfilePassword === editProfileConfirm) {
-    data = {
-      firstname: editProfileFirstName,
-      lastname: editProfileLastName,
-      phone: editProfilePhone,
-      password: editProfilePassword,
-      country: editProfileCountry,
-      picture: editProfilePicture,
-    };
-    $.ajax({
-      url: 'http://localhost:5000/users',
-      type: 'PUT',
-      data: data,
-      success: function(res) {
-        window.location.href = 'profile.html';
-      },
-    });
-  }
-};
-
-function toDataURL(src, callback) {
-  var image = new Image();
-  image.crossOrigin = 'Anonymous';
-
-  image.onload = function() {
-    var canvas = document.createElement('canvas');
-    var context = canvas.getContext('2d');
-    canvas.height = this.naturalHeight;
-    canvas.width = this.naturalWidth;
-    context.drawImage(this, 0, 0);
-    var dataURL = canvas.toDataURL('image/jpeg');
-    callback(dataURL);
-  };
-
-  image.src = src;
-}

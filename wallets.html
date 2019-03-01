@@ -334,14 +334,14 @@
                   ><i class="mdi mdi-account"></i><span class="hide-menu">Profile</span></a
                 >
               </li>
-              <li class="sidebar-item">
+              <!-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="settings.html"
                   aria-expanded="false"
                   ><i class="fas fa-cog"></i><span class="hide-menu">Settings</span></a
                 >
-              </li>
+              </li> -->
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -380,7 +380,7 @@
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-          <div class="row">
+          <div class="row" id="wallet-wrapper">
             <!-- My content goes here -->
             <div class="col-sm-12 col-lg-6">
               <div class="card">
@@ -465,80 +465,78 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12">
-                <button
-                  type="button"
-                  class="float-right btn btn-cyan btn-lg"
-                  data-toggle="modal"
-                  data-target="#add-new-wallet"
-                >
-                  Add New Wallet
-                </button>
-              </div>
-              <div
-                class="modal fade"
-                id="add-new-wallet"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-                style="display: none;"
+            </div>
+            <div class="col-sm-12">
+              <button
+                type="button"
+                class="float-right btn btn-cyan btn-lg"
+                data-toggle="modal"
+                data-target="#add-new-wallets"
+                id="add-wallet-button"
               >
-                <div class="modal-dialog" role="document ">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <div class="card-body">
-                        <div class="text-center">
-                          <h5 class="card-title m-b-30">Add New Wallet</h5>
-                        </div>
-                        <div class="form-group">
-                          <label for="">Account Type</label>
-                        </div>
-
-                        <div class="form-group">
-                          <label>Wallet Name</label>
-                          <input
-                            type="text"
-                            class="form-control phone-inputmask"
-                            id="wallet-"
-                            placeholder="Enter Phone Number"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label
-                            >International Number
-                            <small class="text-muted">+19 999 999 999</small></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control international-inputmask"
-                            id="international-mask"
-                            placeholder="International Phone Number"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label
-                            >Phone / xEx
-                            <small class="text-muted">(999) 999-9999 / x999999</small></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control xphone-inputmask"
-                            id="xphone-mask"
-                            placeholder="Enter Phone Number"
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label
-                            >Purchase Order <small class="text-muted">aaaa 9999-****</small></label
-                          >
-                          <input
-                            type="text"
-                            class="form-control purchase-inputmask"
-                            id="purchase-mask"
-                            placeholder="Enter Purchase Order"
-                          />
-                        </div>
+                Add New Wallet
+              </button>
+            </div>
+            <div
+              class="modal fade"
+              id="add-new-wallet"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+              style="display: none;"
+            >
+              <div class="modal-dialog" role="document ">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="card-body">
+                      <div class="text-center">
+                        <h5 class="card-title m-b-30">Add New Wallet</h5>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label>Wallet Name</label>
+                        <input
+                          type="text"
+                          class="form-control phone-inputmask"
+                          id="wallet-"
+                          placeholder="Enter Phone Number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >International Number
+                          <small class="text-muted">+19 999 999 999</small></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control international-inputmask"
+                          id="international-mask"
+                          placeholder="International Phone Number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Phone / xEx
+                          <small class="text-muted">(999) 999-9999 / x999999</small></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control xphone-inputmask"
+                          id="xphone-mask"
+                          placeholder="Enter Phone Number"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label
+                          >Purchase Order <small class="text-muted">aaaa 9999-****</small></label
+                        >
+                        <input
+                          type="text"
+                          class="form-control purchase-inputmask"
+                          id="purchase-mask"
+                          placeholder="Enter Purchase Order"
+                        />
                       </div>
                     </div>
                   </div>
@@ -643,18 +641,18 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="deposit-amount">Amount</label>
+                      <label for="withdraw-amount">Amount</label>
                       <input
                         type="number"
                         class="form-control"
-                        id="deposit-amount"
+                        id="withdraw-amount"
                         aria-describedby="emailHelp"
                         placeholder="Enter amount to withdraw"
                       />
                     </div>
                     <div class="form-group">
-                      <label for="pwd">Password</label>
-                      <input type="password" class="form-control" id="pwd" placeholder="Password" />
+                      <label for="passwd">Password</label>
+                      <input type="password" class="form-control" id="passwd" placeholder="Password" />
                     </div>
                     <br />
                     <div class="text-center">
