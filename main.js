@@ -67,7 +67,29 @@ function registerFocusOutListeners() {
       });
     }
   });
+
 }
+
+  $('#add').on('click', e => {
+    e.preventDefault();
+    makeSignup();
+  });
+
+  /**LOGIN BUTTON ACTION */
+  $('#login').on('click', e => {
+    e.preventDefault();
+    makeLogin();
+  });
+
+  /**PAYMENT BUTTON ACTION */
+  $('#deposit').on('click', () => {
+    /**get cached user */
+    const user = getLocalStorageValue('user');
+    payWithPaystack(user.firstname + ' ' + user.lastname, user.email, user.phone);
+  });
+});
+
+
 /**pastack sanbox Payment processor gateway*/
 function payWithPaystack(name, email, phone, fundAmount) {
   var handler = PaystackPop.setup({
@@ -83,7 +105,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       ],
     },
-    callback: function (response) {
+    callback: function(response) {
       /*after the transaction have been completed**/
 
       /**build and Post transaction history for this user */
@@ -100,7 +122,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         url: 'http://localhost:5000/transaction-history',
         type: 'POST',
         data: transactionObject,
-        success: function (res) {
+        success: function(res) {
           /**Credit this user with the amount*/
           user['naira-wallet'] += parseInt(user['naira-wallet']) + fundAmount;
 
@@ -108,7 +130,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
             method: 'PATCH',
             url: 'http://localhost:3000/users/' + user['id'],
             data: user,
-          }).done(function (msg) {
+          }).done(function(msg) {
             /**cached this user profile */
             setLocalStorageValue('user', msg);
             swal('Successful!', 'Your account has been credited!', 'success');
@@ -117,7 +139,7 @@ function payWithPaystack(name, email, phone, fundAmount) {
         },
       });
     },
-    onClose: function () {
+    onClose: function() {
       //when the user close the payment modal
       swal('Cancelled', 'Transaction cancelled!', 'warning');
     },
@@ -128,19 +150,13 @@ function payWithPaystack(name, email, phone, fundAmount) {
 /**retrieves current currency price */
 function getCryptoPrices() {
   const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-  const url = 'https://api.binance.com/api/v1/ticker/price';
+  const url = 'https://api.binance.com/api/v1/ticker/price?symbol=BTCUSDT';
   let btcPrice = 0;
   fetch(proxyurl + url, { method: 'GET' })
     .then(response => response.json())
     .then(data => {
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].symbol == 'BTCUSDT') {
-          btcPrice = Number(data[i].price).toFixed(2);
-        }
-      }
-      const btcNairaPrice = Number(btcPrice * 360)
-        .toFixed(2)
-        .toLocaleString(undefined, { maximumFractionDigits: 2 });
+      btcPrice = Number(data.price).toFixed(2);
+      const btcNairaPrice = Number(btcPrice * 360).toFixed(2);
       let btcUSDPrice = document.querySelector('#bitcoin-usd-price');
       let btcNGNPrice = document.querySelector('#bitcoin-ngn-price');
       btcUSDPrice.innerHTML = `<div class="bitcoin-usd-price">&#36;${Number(btcPrice)}</div>`;
@@ -217,6 +233,7 @@ function makeSignup() {
 
   if (fname && lname && uname && pwd && repeatpwd && email && phone) {
     if (validateEmail(email)) {
+
       if (validatePhone(phone)) {
         if (pwd === repeatpwd) {
           data = {
@@ -261,6 +278,44 @@ function makeSignup() {
       } else { swal('Invalid', 'Invalid phone number, try again!', 'warning'); }
     } else {
       swal('Invalid', 'The email you entered is invalid!', 'warning');
+
+      if (pwd === repeatpwd) {
+        data = {
+          firstname: fname,
+          lastname: lname,
+          phone: phone,
+          username: uname,
+          email: email,
+          password: pwd,
+          country: 'Nigeria',
+          language: 'English',
+          'naira-wallet': 0,
+          verification: 0,
+        };
+
+        $.ajax({
+          url: 'http://localhost:5000/users',
+          type: 'POST',
+          data: data,
+          beforeSend: function(e) {
+            if (!validateEmail(email)) {
+              swal('Invalid', 'The email you entered is invalid!', 'warning');
+              return;
+            }
+          },
+          success: function(res) {
+            /**cached this user profile */
+            setLocalStorageValue('user', res);
+
+            window.location.href = 'user-admin.html';
+            swal('Successful!', 'Your account was created, Please login!', 'success');
+            //populatWalletBalance();
+          },
+        });
+      } else {
+        swal('oops!', 'Please all fields are required!', 'warning');
+      }
+
     }
   } else {
     swal('Error!', 'Please all fields are required!', 'warning');
@@ -292,7 +347,7 @@ function makeLogin() {
       }
     });
   } else {
-    swal('oops!', 'Please all felds are requird!', 'warning');
+    swal('oops!', 'Please all fields are required!', 'warning');
   }
 }
 
@@ -331,9 +386,7 @@ function chagePassword(userId, pwd) {
     type: 'PUT',
     data: { password: pwd },
   }).done(res => {
-
     swal('Successful!', 'password changed Sucessful!', 'success');
-
   });
 }
 
@@ -360,7 +413,7 @@ function getRandomInteger(min, max) {
 const charList = generateCharacterList();
 function btcAddress(characterArray) {
   let address = '1';
-  for (let i = 30; i--;) {
+  for (let i = 30; i--; ) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
@@ -368,7 +421,7 @@ function btcAddress(characterArray) {
 
 function ethAddress(characterArray) {
   let address = '0x';
-  for (let i = 40; i--;) {
+  for (let i = 40; i--; ) {
     address += characterArray[getRandomInteger(0, charList.length)];
   }
   return address;
